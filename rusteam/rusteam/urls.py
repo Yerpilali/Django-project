@@ -14,12 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from store import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^(?:index/?|)$', views.index),
+    re_path(r'^(?:index/?|)$', views.index, name='home'),
+    path ('', include('members.urls')),
+    path ('members/', include('django.contrib.auth.urls')),
+    path ('members/', include('members.urls')),
     # Basket
     path('Basket/', views.BasketListView.as_view(), name='bas'),
     path('Basket/<int:pk>/', views.BasketDetailView.as_view(), name='detail_bas'),
@@ -104,4 +107,8 @@ urlpatterns = [
     path('WishList/new/', views.WishListCreateView.as_view(), name='create_wl'),
     path('WishList/<int:pk>/edit/', views.WishListUpdateView.as_view(), name='edit_wl'),
     path('WishList/<int:pk>/delete/', views.WishListDeleteView.as_view(), name='delete_wl'),
+
+
+
+
 ]

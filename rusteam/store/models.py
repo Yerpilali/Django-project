@@ -7,10 +7,22 @@ from django.urls import reverse
 class Developer(models.Model):
     name_developer = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.name_developer
+
+    def get_absolute_url(self):
+        return reverse('detail_dev', args=[str(self.id)])
+
 
 class Publisher(models.Model):
     name_publisher = models.CharField(max_length=20)
     developer_id = models.ForeignKey(Developer, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name_publisher
+
+    def get_absolute_url(self):
+        return reverse('detail_pub', args=[str(self.id)])
 
 
 class Tag(models.Model):
@@ -91,4 +103,4 @@ class Role(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
-#class Chat(models.Model):
+
