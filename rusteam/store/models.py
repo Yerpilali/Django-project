@@ -40,6 +40,11 @@ class Product(models.Model):
     publisher_id = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     typekey_id = models.ForeignKey(TypeKey, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('detail_prod', args=[str(self.id)])
 
 class Label(models.Model):
     tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{%extends 'store.html'%}
 
-</body>
-</html>
+{% block content %}
+    <div>
+        <a href="..">back</a>
+        <p><b>{{Product.name}}</b> -- {{Product.price}}</p>
+        <a href="edit">edit</a> | <a href="delete">delete</a>
+    </div>
+{% endblock %}

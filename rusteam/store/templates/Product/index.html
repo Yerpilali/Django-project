@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends  'store.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block content %}
+    <a href="new" class="btn btn-primary">new</a>
+    {% for el in Products %}
+    <div class="card" style="width: 18rem;">
+
+        <div class="card-body">
+        <img src="{% static 'img/starcraft.jpg' %}" class="card-img-top" alt="...">
+        <h5 class="card-title">{{ el.name }}</h5>
+        <p class="card-text">описание товара типа.</p>
+        <p class="card-text-price">цена: {{ el.price }} руб.</p>
+        <a href="{% url 'bas' %}" class="btn btn-primary">Купить</a>
+        <a class="card-text" href="{{el.pk}}/edit">edit</a>
+        <a class="card-text" href="{{el.pk}}/delete">delete</a>
+        <a class="card-text" href="{{el.pk}}">detail</a>
+      </div>
+    </div>
+    {% endfor %}
+
+
+{% endblock %}

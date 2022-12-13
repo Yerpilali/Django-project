@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends  'store.html' %}
+{% block content %}
+    {% for el in baskets%}
+        <div>
+            <p><b>{{el.type}}</b> -- {{el.desc}}</p>
+            <a href="{{el.pk}}/edit">edit</a> | <a href="{{el.pk}}/delete">delete</a> | <a href="{{el.pk}}">detail</a>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -37,19 +37,19 @@ urlpatterns = [
     path('Developer/<int:pk>/delete/', views.DeveloperDeleteView.as_view(), name='delete_dev'),
     # Label
     path('Label/', views.LabelListView.as_view(), name='lab'),
-    path('Label/<int:pk>/', views.LabelListView.as_view(), name='detail_lab'),
+    path('Label/<int:pk>/', views.LabelDetailView.as_view(), name='detail_lab'),
     path('Label/new/', views.LabelCreateView.as_view(), name='create_lab'),
     path('Label/<int:pk>/edit/', views.LabelUpdateView.as_view(), name='edit_lab'),
     path('Label/<int:pk>/delete/', views.LabelDeleteView.as_view(), name='delete_lab'),
     # Log
     path('Log/', views.LogListView.as_view(), name='log'),
-    path('Log/<int:pk>/', views.LogListView.as_view(), name='detail_log'),
+    path('Log/<int:pk>/', views.LogDetailView.as_view(), name='detail_log'),
     path('Log/new/', views.LogCreateView.as_view(), name='create_log'),
     path('Log/<int:pk>/edit/', views.LogUpdateView.as_view(), name='edit_log'),
     path('Log/<int:pk>/delete/', views.LogDeleteView.as_view(), name='delete_log'),
     # Product
     path('Product/', views.ProductListView.as_view(), name='prod'),
-    path('Product/<int:pk>/', views.ProductListView.as_view(), name='detail_prod'),
+    path('Product/<int:pk>/', views.ProductDetailView.as_view(), name='detail_prod'),
     path('Product/new/', views.ProductCreateView.as_view(), name='create_prod'),
     path('Product/<int:pk>/edit/', views.ProductUpdateView.as_view(), name='edit_prod'),
     path('Product/<int:pk>/delete/', views.ProductDeleteView.as_view(), name='delete_prod'),
